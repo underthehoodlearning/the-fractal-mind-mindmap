@@ -19,6 +19,7 @@
   <!-- Include MindElixir JS -->
   <script type="module" src="https://cdn.jsdelivr.net/npm/mind-elixir/dist/MindElixir.js"></script>
   <script>
+    import MindElixir from "https://cdn.jsdelivr.net/npm/mind-elixir@^3.0.0/dist/MindElixir.js";
     window.onload = function() {
       // Define a simple mind map with one node
       var data = {
@@ -37,10 +38,23 @@
         draggable: true,
         editable: true
       };
+
+      let mind = new MindElixir({
+        el: '#map',
+        direction: MindElixir.LEFT,
+        // or set as data that is return from `.getAllData()`
+        // data: {...},
+        draggable: true, // default true
+        contextMenu: true, // default true
+        toolBar: true, // default true
+        nodeMenu: true, // default true
+        keypress: true, // default true
+      })
+      mind.init(MindElixir.new('new topic'))
       
       // Create and initialize the mind map instance
-      var mindMap = new MindElixir(options);
-      mindMap.init();
+      // var mindMap = new MindElixir(options);
+      // mindMap.init();
     };
   </script>
 </body>
