@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>MindElixir Mind Map</title>
+  <style>
+    html, body, #mind-elixir {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+  <!-- Container for the mind map -->
+  <div id="mind-elixir"></div>
+  
+  <!-- Include MindElixir JS -->
+  <script type="module" src="https://cdn.jsdelivr.net/npm/mind-elixir/dist/MindElixir.js"></script>
+  <script>
+    window.onload = function() {
+      // Define a simple mind map with one node
+      var data = {
+        root: {
+          id: 'root',
+          topic: 'The Fractal Mind',
+          children: [] // No children for now
+        }
+      };
+      
+      // Options for initializing MindElixir
+      var options = {
+        el: document.getElementById('mind-elixir'),
+        data: data,
+        direction: MindElixir.direction.right,  // Nodes expand to the right
+        draggable: true,
+        editable: true
+      };
+      
+      // Create and initialize the mind map instance
+      var mindMap = new MindElixir(options);
+      mindMap.init();
+    };
+  </script>
+</body>
+</html>
